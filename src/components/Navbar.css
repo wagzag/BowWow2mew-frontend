@@ -1,0 +1,60 @@
+/* Navbar.css */
+
+/* 네비게이션 바 전체 스타일 */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FEDF78; /* 배경 색상을 노란색으로 설정 */
+    padding: 1rem 2rem; /* 패딩 적용 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+  }
+  
+  /* 네비게이션 바의 브랜드(로고) 스타일 */
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #846144; 
+    text-decoration: none;
+  }
+  
+  /* 네비게이션 바 링크들 스타일 */
+  .navbar-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  /* 각 링크 스타일 */
+  .navbar-links a {
+    color: #39442D; 
+    text-decoration: none; 
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s; 
+  }
+  
+  /* 링크 호버 스타일 */
+  .navbar-links a:hover {
+    color: #333; /* 호버 시 링크 텍스트 색상 */
+  }
+  
+  /* 로그인/회원가입 버튼 스타일 */
+  .navbar-auth {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  /* 각 로그인/회원가입 링크 스타일 */
+  .navbar-auth a {
+    color: #39442D; /* 링크 텍스트 색상 */
+    text-decoration: none; /* 링크의 기본 밑줄 제거 */
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s; /* 색상 변경 트랜지션 */
+  }
+  
+  /* 로그인/회원가입 링크 호버 스타일 */
+  .navbar-auth a:hover {
+    color: #333; /* 호버 시 링크 텍스트 색상 */
+  }
+  
