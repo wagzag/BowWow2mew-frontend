@@ -1,7 +1,7 @@
 // 추천 플레이스
 import React from 'react';
 
-const RecommendedPlace = () => {
+const RecommendationsBoard = () => {
   return (
     <div>
       <h1>추천 Place</h1>
@@ -9,4 +9,4 @@ const RecommendedPlace = () => {
   );
 };
 
-export default RecommendedPlace;
+export default RecommendationsBoard;

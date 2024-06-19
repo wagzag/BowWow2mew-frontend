@@ -10,10 +10,10 @@ const Navbar = () => {
       </div>
       <div className="navbar-links">
         <Link to="/freeboard">자유 게시판</Link>
-        <Link to="/adoption">입양 / 임시보호</Link>
-        <Link to="/qna">고민 해결소</Link>
-        <Link to="/jarang">자랑 게시판</Link>
-        <Link to="/recommended">추천 Place</Link>
+        <Link to="/adoption">입양 / 임시보호 게시판</Link>
+        <Link to="/questions">고민 게시판</Link>
+        <Link to="/boasts">자랑 게시판</Link>
+        <Link to="/recommendations">추천 게시판</Link>
       </div>
       <div className="navbar-auth">
         <Link to="/login">Login</Link>
