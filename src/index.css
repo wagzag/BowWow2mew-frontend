@@ -5,10 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.font-nanum-gothic {
-    font-family: 'Nanum Gothic', sans-serif;
-  }
-  
-  .font-nanum-gothic-coding {
-    font-family: 'Nanum Gothic Coding', monospace;
-  }
+/* 나눔고딕 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+/* Jua */
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic&display=swap');
