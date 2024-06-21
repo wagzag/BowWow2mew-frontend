@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-const BoardWrite = () => {
+const BoardDetail = () => {
   const navigate = useNavigate()
 
   const [write, setWrite] = useState({
@@ -79,4 +79,4 @@ const BoardWrite = () => {
   )
 }
 
-export default BoardWrite
+export default BoardDetail
