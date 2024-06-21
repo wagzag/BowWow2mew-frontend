@@ -4,15 +4,15 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'nanum-gothic': ['Nanum Gothic', 'sans-serif'],
-        'nanum-gothic-coding': ['Nanum Gothic Coding', 'monospace'],
+        Regular: ['NanumGothic', 'sans-serif'],
+        Point: ['Jua', 'sans-serif'],
       },
       colors: {
-        'custom-yellow': '#FEDF78',
-        'custom-brown': '#846144',
-        'custom-light-yellow': '#FFF0D4',
-        'custom-dark-yellow': '#FFCB4F',
-        'custom-green': '#39442D'
+        main: '#FEDF78',
+        point: '#846144',
+        font: '#39442D',
+        text: '#FFF0D4',
+        button: '#FFCB4F',
       },
     },
   },
