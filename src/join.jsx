@@ -57,7 +57,7 @@ const JoinPage = () => {
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-[#FEDF78] font-Point">
           <button className="text-[#846144] text-5xl mb-6 focus:outline-none" onClick={handleGoToMainPage}>멍멍냥냥</button>
-          <div className="text-[#846144] text-left mb-4 mr-25">회원가입</div>
+          <div className="text-[#846144] text-left text-lg mb-4 mr-60">회원가입</div>
           <input
             className="w-80 h-12 p-3 mb-4 rounded-xl bg-[#FFF0D4] focus:outline-none text-[#39442D] text-sm"
             type="text"
@@ -82,7 +82,7 @@ const JoinPage = () => {
           />
           {errors.password && <p className="text-red-500 text-sm mb-4">{errors.password}</p>}
           <input
-            className={`w-80 h-12 p-3 mb-4 rounded-xl focus:outline-none text-[#39442D] text-sm ${errors.confirmPassword ? 'border-red-500' : 'bg-[#FFF0D4]'} `}
+            className={`w-80 h-12 p-3 mb-6 rounded-xl focus:outline-none text-[#39442D] text-sm ${errors.confirmPassword ? 'border-red-500' : 'bg-[#FFF0D4]'} `}
             type="password"
             placeholder="비밀번호 확인"
             value={confirmPassword}
