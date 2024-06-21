@@ -1,12 +1,13 @@
+// App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar.js';
-import Main from './components/Main.js';  
-import FreeBoard from './components/FreeBoard.js';
-import AdoptionBoard from './components/AdoptionBoard.js';
-import QuestionsBoard from './components/QuestionsBoard.js';  
-import BoastsBoard from './components/BoastsBoard.js';
-import RecommendationsBoard from './components/RecommendationsBoard.js';
+import Navbar from './components/Navbar.jsx';
+import Main from './components/Main.jsx';  
+import FreeBoard from './components/FreeBoard.jsx';
+import AdoptionBoard from './components/AdoptionBoard.jsx';
+import QuestionsBoard from './components/QuestionsBoard.jsx';  
+import BoastsBoard from './components/BoastsBoard.jsx';
+import RecommendationsBoard from './components/RecommendationsBoard.jsx';
 
 const App = () => {
   return (
