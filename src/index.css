@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 나눔고딕 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+/* Jua */
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic&display=swap');
