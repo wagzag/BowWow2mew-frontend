@@ -53,6 +53,28 @@ const Main = () => {
           <div className="bg-white p-3 rounded-lg shadow">글 3</div>
         </div>
       </div>
+      <div className="mb-10">
+        <div className="flex justify-between items-center mb-5">
+          <h2 className="text-3xl font-Point text-point">고민 해결소</h2>
+          <Link to="/questions" className="text-point hover:text-gray-300 cursor-pointer">더보기</Link> {/* Link 컴포넌트로 변경 */}
+        </div>
+        <div className="flex flex-col gap-3">
+          <div className="bg-white p-3 rounded-lg shadow">글 1</div>
+          <div className="bg-white p-3 rounded-lg shadow">글 2</div>
+          <div className="bg-white p-3 rounded-lg shadow">글 3</div>
+        </div>
+      </div>
+      <div className="mb-10">
+        <div className="flex justify-between items-center mb-5">
+          <h2 className="text-3xl font-Point text-point">추천 place</h2>
+          <Link to="/recommendations" className="text-point hover:text-gray-300 cursor-pointer">더보기</Link> {/* Link 컴포넌트로 변경 */}
+        </div>
+        <div className="flex flex-col gap-3">
+          <div className="bg-white p-3 rounded-lg shadow">글 1</div>
+          <div className="bg-white p-3 rounded-lg shadow">글 2</div>
+          <div className="bg-white p-3 rounded-lg shadow">글 3</div>
+        </div>
+      </div>
     </div>
   );
 };
