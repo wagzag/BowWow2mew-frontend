@@ -14,11 +14,13 @@ module.exports = {
         Regular: ['NanumGothic', 'sans-serif'],
         Point: ['Jua', 'sans-serif'],
       },
+
       spacing: {
         90: '90px',
       },
       minHeight: {
         1: '1px',
+
       },
     },
   },
