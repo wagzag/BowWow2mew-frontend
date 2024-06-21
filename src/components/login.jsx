@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -7,12 +8,14 @@ const LoginPage = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    // 여기에 로그인 로직을 추가하세요
-    if (email === 'test@example.com' && password === 'testPassword') {
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('http://localhost:3000/login', { email, password });
+      const { token } = response.data;
+      localStorage.setItem('token', token); // JWT 토큰을 로컬 스토리지에 저장
       setError('');
       navigate('/home'); // 로그인 성공시 홈으로 이동
-    } else {
+    } catch (error) {
       setError('이메일 또는 비밀번호를 잘못 입력했습니다');
     }
   };
