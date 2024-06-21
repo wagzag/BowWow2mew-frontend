@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
+import { Link } from 'react-router-dom'; // Link 컴포넌트를 임포트합니다.
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -21,9 +22,9 @@ const Main = () => {
   };
 
   return (
-    <div className="bg-white py-10">
+    <div className="bg-main py-10">
       <div className="mb-10">
-        <h2 className="text-3xl mb-5">금주의 반려동물</h2>
+        <h2 className="text-3xl mb-5 font-Point text-point">금주의 반려동물</h2>
         <Slider {...sliderSettings}>
           {petImages.map((image, index) => (
             <div key={index} className="px-5">
@@ -33,7 +34,7 @@ const Main = () => {
         </Slider>
       </div>
       <div className="mb-10">
-        <h2 className="text-3xl mb-5">HOT Issue</h2>
+        <h2 className="text-3xl mb-5 font-Point text-point">HOT Issue</h2>
         <div className="grid grid-cols-2 gap-5">
           <div className="bg-white p-5 rounded-lg shadow">Issue 1</div>
           <div className="bg-white p-5 rounded-lg shadow">Issue 2</div>
@@ -43,8 +44,8 @@ const Main = () => {
       </div>
       <div className="mb-10">
         <div className="flex justify-between items-center mb-5">
-          <h2 className="text-3xl">자유 게시판</h2>
-          <button className="mt-3 px-5 py-2 bg-white border-none rounded-lg shadow cursor-pointer">더보기</button>
+          <h2 className="text-3xl font-Point text-point">자유 게시판</h2>
+          <Link to="/freeboard" className="text-point hover:text-gray-300 cursor-pointer">더보기</Link> {/* Link 컴포넌트로 변경 */}
         </div>
         <div className="flex flex-col gap-3">
           <div className="bg-white p-3 rounded-lg shadow">글 1</div>
