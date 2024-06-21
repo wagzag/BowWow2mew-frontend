@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './index.css'; // Tailwind CSS 파일 임포트
 
 const JoinPage = () => {
     const [name, setName] = useState('');

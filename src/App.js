@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LoginPage from './login';
-import JoinPage from './join'; // 회원가입 페이지 추가
+import LoginPage from './components/login';
+import JoinPage from './components/join'; // 회원가입 페이지 추가
 
 const App = () => {
   return (
