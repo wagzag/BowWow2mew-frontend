@@ -13,7 +13,7 @@ const App = () => {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Main />} />  {/* 홈 경로를 메인 페이지로 설정 */}
+        <Route path="/" element={<Main />} />  
         <Route path="/freeboard" element={<FreeBoard />} />
         <Route path="/adoption" element={<AdoptionBoard />} />
         <Route path="/questions" element={<QuestionsBoard />} />
