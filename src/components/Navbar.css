@@ -23,9 +23,9 @@
 }
 
 .navbar-auth a {
-  margin-left: 20px;
+  margin-left: 2vw; /* 상대적인 단위로 설정 */
 }
 
 .navbar-links a {
-  margin: 0 100px;
+  margin: 0 7vw; /* 상대적인 단위로 설정 */
 }
