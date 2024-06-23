@@ -12,7 +12,7 @@ module.exports = {
       },
       fontFamily: {
         Regular: ['NanumGothic', 'sans-serif'],
-        Point: ['Jua', 'sans-serif'],
+        Point: ['Jua', 'sans-serif'], 
       },
 
       spacing: {
