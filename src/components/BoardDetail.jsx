@@ -1,25 +1,33 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 const BoardDetail = () => {
   const navigate = useNavigate()
 
-  const [write, setWrite] = useState({
-    title: '',
-    content: '',
+  const [board, setboard] = useState({
+    // postId,
+    title,
+    content,
   })
-  console.log(write)
+  console.log(board)
 
-  const { title, content } = write // 비구조화 할당
+  useEffect(() => {
+    fetch('http://localhost:3000/data/mockData.json')
+      .then((res) => res.json())
+      .then((res) => setboard(res.data))
+    console.log(board)
+  }, [])
 
-  const getBoardList = (e) => {
-    const { value, name } = e.target
-    setWrite({
-      ...write,
-      [name]: value,
-    })
-  }
+  const { title, content } = board // 비구조화 할당
+
+  // const getBoardList = (e) => {
+  //   const { value, name } = e.target
+  //   setboard({
+  //     ...board,
+  //     [name]: value,
+  //   })
+  // }
 
   const backToList = () => {
     navigate('/boardList')
@@ -27,16 +35,19 @@ const BoardDetail = () => {
 
   return (
     <div>
-      <div className="h-screen bg-[#FEDF78] p-28">
+      <div className="h-screen bg-[hsl(46,99%,73%)] p-28">
+        <span className="hidden" key={board.postId}></span>
         <div>
           <input
             type="text"
             placeholder="제목"
             name="title"
             value={title}
-            onChange={getBoardList}
+            // onChange={setboard}
             className="w-full h-8 font-Regular bg-[#FFF0D4] mb-6 rounded-lg"
-          />
+          >
+            {board.title}
+          </input>
         </div>
         <div>
           <input
@@ -44,9 +55,11 @@ const BoardDetail = () => {
             placeholder="내용"
             name="content"
             value={content}
-            onChange={getBoardList}
+            // onChange={setboard}
             className="w-full h-60 font-Regular bg-[#FFF0D4] mb-3 rounded-lg"
-          />
+          >
+            {board.content}
+          </input>
         </div>
         <div className="flex justify-between">
           <div>

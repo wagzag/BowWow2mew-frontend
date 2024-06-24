@@ -1,12 +1,12 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import BoardWrite from './components/BoardWrite'
+import BoardDetail from './components/BoardDetail'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/write" element={<BoardWrite />} />
+        <Route path="/board/:postId" element={<BoardDetail />} />
       </Routes>
     </BrowserRouter>
   )
