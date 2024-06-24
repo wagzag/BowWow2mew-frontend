@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Main from './components/Main.jsx';  
 import FreeBoard from './components/FreeBoard.jsx';
@@ -10,10 +10,13 @@ import RecommendationsBoard from './components/RecommendationsBoard.jsx';
 import LoginPage from './components/login.jsx';
 import JoinPage from './components/join.jsx';
 
-const App = () => {
+const AppContent = () => {
+  const location = useLocation();
+  const showNavbar = location.pathname !== '/login' && location.pathname !== '/join';
+
   return (
-    <Router>
-      <Navbar />
+    <>
+      {showNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<Main />} />  
         <Route path="/freeboard" element={<FreeBoard />} />
@@ -24,8 +27,14 @@ const App = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/join" element={<JoinPage />} /> {/* 회원가입 페이지 경로 추가 */}
       </Routes>
-    </Router>
+    </>
   );
 };
+
+const App = () => (
+  <Router>
+    <AppContent />
+  </Router>
+);
 
 export default App;
