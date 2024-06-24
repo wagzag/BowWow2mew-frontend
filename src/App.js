@@ -1,14 +1,15 @@
-import FreeBoard from './components/FreeBoard'
+import BoardDetail from './components/BoardDetail'
+import BoardList from './components/BoardList'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <p className="text-bold underline text-red-500">안녕</p>
-        <span className="text-orange-900 font-Regular">넌 잘 지냈니?</span> */}
-        <FreeBoard />
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/board" element={<BoardList />} />
+        <Route path="/board/:postId" element={<BoardDetail />} />
+      </Routes>
+    </Router>
   )
 }
 
