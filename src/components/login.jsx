@@ -14,7 +14,7 @@ const LoginPage = () => {
       const { token } = response.data;
       localStorage.setItem('token', token); // JWT 토큰을 로컬 스토리지에 저장
       setError('');
-      navigate('/home'); // 로그인 성공시 홈으로 이동
+      navigate('/'); // 로그인 성공시 홈으로 이동
     } catch (error) {
       setError('이메일 또는 비밀번호를 잘못 입력했습니다');
     }
