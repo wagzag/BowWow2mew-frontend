@@ -16,7 +16,7 @@ const Board = ({ postId, title, content, author }) => {
   const boardDelete = async () => {
     if (window.confirm('게시글을 삭제하시겠습니까?')) {
       await axios.delete(`http://localhost:3000/freeboard/${postId}`).then(() => alert('삭제 되었습니다.'))
-      navigate('/board')
+      navigate('/freeboard')
     }
   }
 
