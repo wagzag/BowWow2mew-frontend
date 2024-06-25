@@ -9,7 +9,7 @@ const BoardList = () => {
 
   // axios Ver.
   const getBoardList = async () => {
-    const getData = await (await axios.get('http://localhost:3000/freeboard')).data
+    const getData = await axios.get('http://localhost:3000/freeboard').data
     setBoardList(getData.data)
     console.log(boardList)
   }

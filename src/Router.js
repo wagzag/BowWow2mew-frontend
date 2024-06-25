@@ -22,9 +22,7 @@ const AppContent = () => {
       {showNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/freeboard/" element={<FreeBoard />}>
-          {/* <Route path="/freeboard/:postId" element={<BoardDetail />} /> */}
-        </Route>
+        <Route path="/freeboard" element={<FreeBoard />} />
         <Route path="/adoption" element={<AdoptionBoard />} />
         <Route path="/questions" element={<QuestionsBoard />} />
         <Route path="/boasts" element={<BoastsBoard />} />
@@ -33,7 +31,7 @@ const AppContent = () => {
         <Route path="/join" element={<JoinPage />} /> {/* 회원가입 페이지 경로 추가 */}
         <Route path="/boardWrite" element={<BoardWrit />} />
         <Route path="/board" element={<BoardList />} />
-        <Route path="/freeboard/:postId" element={<BoardDetail />} />
+        <Route path="/board/:postId" element={<BoardDetail />} />
       </Routes>
     </>
   )
