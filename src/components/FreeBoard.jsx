@@ -9,7 +9,7 @@ const FreeBoard = () => {
     <div>
       <div className="h-screen bg-[#FEDF78] p-28">
         <p className="font-Point text-point text-2xl mb-10">자유 게시판</p>
-        <BoardList>
+        <BoardList boardType={'freeboard'}>
           <BoardDetail />
         </BoardList>
       </div>

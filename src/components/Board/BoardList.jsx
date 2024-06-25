@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 
-const BoardList = () => {
+const BoardList = (props) => {
   const [boardList, setBoardList] = useState([])
   const navigate = useNavigate()
 
@@ -58,7 +58,7 @@ const BoardList = () => {
                 <div className="flex justify-around">
                   <span className="hidden" key={data.postId}></span>
                   <input type="checkbox" className="float-left" />
-                  <Link to={`/freeboard/${data.postId}`}>{data.title}</Link>
+                  <Link to={`/${props.boardType}/${data.postId}`}>{data.title}</Link>
                   <span>{data.createdAt}</span>
                   <span>{data.author}</span>
                 </div>

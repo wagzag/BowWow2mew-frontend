@@ -32,6 +32,10 @@ const AppContent = () => {
         <Route path="freeboard/write" element={<BoardWrit />} />
         <Route path="/board" element={<BoardList />} />
         <Route path="/freeboard/:postId" element={<BoardDetail />} />
+        <Route path="/adoption/:postId" element={<BoardDetail />} />
+        <Route path="/questions/:postId" element={<BoardDetail />} />
+        <Route path="/boasts/:postId" element={<BoardDetail />} />
+        <Route path="/recommendations/:postId" element={<BoardDetail />} />
       </Routes>
     </>
   )
