@@ -7,21 +7,52 @@ const BoardWrite = () => {
   const { postId } = useParams() // URL에서 postId를 가져옴
 
   const [write, setWrite] = useState({
+<<<<<<< HEAD
     // postId: postId || '', // postId가 있으면 수정, 없으면 새 글
     postId: 1,
+=======
+    postId: postId || '', // postId가 있으면 수정, 없으면 새 글
+>>>>>>> board1
     title: '',
     content: '',
     userId: '',
     category: 'freeboard',
   })
 
+<<<<<<< HEAD
+=======
+  // useEffect(() => {
+  //   if (postId) {
+  //     // postId가 있을 경우 기존 글 불러오기
+  //     const fetchPost = async () => {
+  //       try {
+  //         const response = await axios.get(`http://localhost:3000/freeboard/${postId}`)
+  //         setWrite(response.data)
+  //       } catch (error) {
+  //         console.error('글 불러오기에 실패했습니다:', error)
+  //       }
+  //     }
+  //     fetchPost()
+  //   }
+  // }, [postId])
+
+>>>>>>> board1
   useEffect(() => {
     if (postId) {
       // postId가 있을 경우 기존 글 불러오기
       const fetchPost = async () => {
         try {
+<<<<<<< HEAD
           const response = await axios.get(`http://localhost:3000/freeboard/${postId}`)
           setWrite(response.data)
+=======
+          const response = await fetch(`http://localhost:3000/freeboard/${postId}`)
+          if (!response.ok) {
+            throw new Error('네트워크 응답이 정상이 아닙니다.')
+          }
+          const data = await response.json()
+          setWrite(data)
+>>>>>>> board1
         } catch (error) {
           console.error('글 불러오기에 실패했습니다:', error)
         }
