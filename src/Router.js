@@ -29,9 +29,9 @@ const AppContent = () => {
         <Route path="/recommendations" element={<RecommendationsBoard />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/join" element={<JoinPage />} /> {/* 회원가입 페이지 경로 추가 */}
-        <Route path="/boardWrite" element={<BoardWrit />} />
+        <Route path="freeboard/write" element={<BoardWrit />} />
         <Route path="/board" element={<BoardList />} />
-        <Route path="/board/:postId" element={<BoardDetail />} />
+        <Route path="/freeboard/:postId" element={<BoardDetail />} />
       </Routes>
     </>
   )

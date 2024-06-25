@@ -1,29 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
 
 const BoardList = () => {
   const [boardList, setBoardList] = useState([])
   const navigate = useNavigate()
 
   // axios Ver.
-  const getBoardList = async () => {
-    const getData = await axios.get('http://localhost:3000/freeboard').data
-    setBoardList(getData.data)
-    console.log(boardList)
-  }
-  useEffect(() => {
-    getBoardList()
-  }, [])
-  console.log(boardList)
+  // const getBoardList = async () => {
+  //   try {
+  //     const getData = await axios.get('http://localhost:3000/freeboard')
+  //     setBoardList(getData.data)
+  //   } catch (error) {
+  //     console.error('데이터를 가져오는 데 실패했습니다:', error)
+  //   }
+  // }
 
   // useEffect(() => {
-  //   fetch('http://localhost:3000/data/mockData.json')
-  //     .then((res) => res.json())
-  //     .then((res) => setBoardList(res.data))
-  //   // console.log(boardList)
+  //   getBoardList()
   // }, [])
+
+  useEffect(() => {
+    fetch('http://localhost:3000/data/mockData.json')
+      .then((res) => res.json())
+      .then((res) => setBoardList(res.data))
+    // console.log(boardList)
+  }, [])
 
   // console.log(boardList)
 
@@ -33,7 +35,7 @@ const BoardList = () => {
     // if (isLogin === null) {
     //   navigate('/login')
     // } else {
-    navigate('/boardWrite')
+    navigate('/freeboard/write')
     // }
   }
 
@@ -52,7 +54,7 @@ const BoardList = () => {
         <div>
           <ul>
             {boardList.map((data) => (
-              <div className="flex justify-around flex-col mt-2">
+              <li key={data.postId} className="flex justify-around flex-col mt-2">
                 <div className="flex justify-around">
                   <span className="hidden" key={data.postId}></span>
                   <input type="checkbox" className="float-left" />
@@ -61,7 +63,10 @@ const BoardList = () => {
                   <span>{data.author}</span>
                 </div>
                 <hr className="mt-2 bg-font min-h-[1px] border-0 h-0"></hr>
-              </div>
+              </li>
+              // <div className="flex justify-around flex-col mt-2">
+
+              // </div>
             ))}
           </ul>
           <div className="flex justify-end mt-3">
