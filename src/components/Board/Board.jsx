@@ -22,19 +22,15 @@ const Board = ({ postId, title, content, userId }) => {
 
   const boardDelete = async () => {
     try {
-      //  let token = req.headers.authorization.replace('Bearer ', '')
       if (window.confirm('게시글을 삭제하시겠습니까?')) {
         await axios
-          .delete(`http://localhost:3000/data/mockData.json/freeboard/${postId}`, {
-            // headers: {
-            //   Authorization: `Bearer ${token}`,
-            // },
-            // data: {
-            //   postId: postId,
-            //   title: title,
-            //   content: content,
-            //   userId: userId,
-            // },
+          .delete(`http://localhost:3000/data/mockData.json`, {
+            data: {
+              postId: postId,
+              title: title,
+              content: content,
+              userId: userId,
+            },
           })
           // const data = response.data
           // setData(data.data)

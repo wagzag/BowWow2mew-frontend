@@ -5,12 +5,15 @@ import axios from 'axios'
 const BoardEdit = () => {
   const navigate = useNavigate()
   const { postId } = useParams()
+  const getUserId = localStorage.getItem('userId')
+
   const [board, setBoard] = useState({
     title: '',
     content: '',
+    userId: getUserId,
   })
 
-  const { title, content } = board
+  const { title, content, userId } = board
 
   const onChange = (e) => {
     const { value, name } = e.target
@@ -33,6 +36,17 @@ const BoardEdit = () => {
     }
     getBoard()
   }, [postId])
+
+  const editBoard = async () => {
+    try {
+      const response = await axios.put('http://localhost:3000/data/mockData.json')
+      const data = response.data
+      setBoard(data.data)
+      console.log('data', data)
+    } catch (error) {
+      console.error('데이터를 보내지 못하였습니다.', error)
+    }
+  }
 
   const backToList = () => {
     navigate('/freeboard')
@@ -71,6 +85,7 @@ const BoardEdit = () => {
             type="text"
             placeholder="작성자 이름"
             name="userId"
+            value={userId}
             readOnly={true}
             className="w-full h-12 font-Regular bg-[#FFF0D4] mb-6 rounded-lg p-3 hidden"
           />
@@ -80,11 +95,7 @@ const BoardEdit = () => {
         </div>
         <div className="flex justify-end">
           <div className="bg-[#FFF0D4] absolute w-14 h-6 rounded-xl">
-            <button
-              type="submit"
-              className="font-Point relative -translate-x-1.5 ml-5"
-              // onClick={formSubmit}
-            >
+            <button type="submit" className="font-Point relative -translate-x-1.5 ml-5" onClick={editBoard}>
               수정
             </button>
           </div>

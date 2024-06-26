@@ -63,7 +63,7 @@ const BoardList = (props) => {
                   <input type="checkbox" className="float-left" />
                   <Link to={`/${props.boardType}/${data.postId}`}>{data.title}</Link>
                   <span>{data.createdAt}</span>
-                  <span>{data.userId}</span>
+                  <span>{data.name}</span>
                 </div>
                 <hr className="mt-2 bg-font min-h-[1px] border-0 h-0"></hr>
               </li>

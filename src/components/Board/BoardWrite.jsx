@@ -5,11 +5,12 @@ import { useNavigate } from 'react-router-dom'
 const BoardWrite = () => {
   const navigate = useNavigate()
   // const { postId } = useParams() // URL에서 postId를 가져옴
+  const getUserId = localStorage.getItem('userId')
 
   const [write, setWrite] = useState({
     title: '',
     content: '',
-    userId: '',
+    userId: getUserId,
     category: 'freeboard',
   })
 
