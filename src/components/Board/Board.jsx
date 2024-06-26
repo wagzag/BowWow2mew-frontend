@@ -1,22 +1,49 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const Board = ({ postId, title, content, author }) => {
+const Board = ({ postId, title, content, userId }) => {
   const navigate = useNavigate()
+
+  // const [data, setData] = useState({
+  //   postId: postId,
+  //   title: title,
+  //   content: content,
+  //   userId: userId,
+  // })
 
   const backToList = () => {
     navigate('/freeboard')
   }
 
   const boardEdit = () => {
-    navigate(`/freeboard/${postId}`)
+    navigate('/update/' + postId)
   }
 
   const boardDelete = async () => {
-    if (window.confirm('게시글을 삭제하시겠습니까?')) {
-      await axios.delete(`http://localhost:3000/freeboard/${postId}`).then(() => alert('삭제 되었습니다.'))
-      navigate('/freeboard')
+    try {
+      //  let token = req.headers.authorization.replace('Bearer ', '')
+      if (window.confirm('게시글을 삭제하시겠습니까?')) {
+        await axios
+          .delete(`http://localhost:3000/data/mockData.json/freeboard/${postId}`, {
+            // headers: {
+            //   Authorization: `Bearer ${token}`,
+            // },
+            // data: {
+            //   postId: postId,
+            //   title: title,
+            //   content: content,
+            //   userId: userId,
+            // },
+          })
+          // const data = response.data
+          // setData(data.data)
+          // .then((data) => console.log(data.data))
+          .then(alert('삭제 되었습니다.'))
+        navigate('/freeboard')
+      }
+    } catch (error) {
+      console.error('데이터를 삭제하는데 실패했습니다:', error)
     }
   }
 
@@ -25,12 +52,12 @@ const Board = ({ postId, title, content, author }) => {
       <div>
         <div className="h-screen bg-[hsl(46,99%,73%)] p-28">
           <span className="hidden" key={postId}></span>
-          <span className="hidden">{author}</span>
+          <span className="hidden">{userId}</span>
           <div>
-            <p className="w-full h-8 font-Regular bg-[#FFF0D4] mb-6 rounded-lg">{title}</p>
+            <p className="w-full h-10 font-Regular bg-[#FFF0D4] mb-6 rounded-lg p-2">{title}</p>
           </div>
           <div>
-            <p className="w-full h-60 font-Regular bg-[#FFF0D4] mb-3 rounded-lg">{content}</p>
+            <p className="w-full h-60 font-Regular bg-[#FFF0D4] mb-3 rounded-lg p-2">{content}</p>
           </div>
           <div className="flex justify-between">
             <div>

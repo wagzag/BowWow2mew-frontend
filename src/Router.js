@@ -12,6 +12,7 @@ import JoinPage from './components/join.jsx'
 import BoardWrit from './components/Board/BoardWrite.jsx'
 import BoardList from './components/Board/BoardList.jsx'
 import BoardDetail from './components/Board/BoardDetail.jsx'
+import BoardEdit from './components/Board/BoardEdit.jsx'
 
 const AppContent = () => {
   const location = useLocation()
@@ -31,7 +32,12 @@ const AppContent = () => {
         <Route path="/join" element={<JoinPage />} /> {/* 회원가입 페이지 경로 추가 */}
         <Route path="freeboard/write" element={<BoardWrit />} />
         <Route path="/board" element={<BoardList />} />
+        <Route path="/update/:postId" element={<BoardEdit />} />
         <Route path="/freeboard/:postId" element={<BoardDetail />} />
+        <Route path="/adoption/:postId" element={<BoardDetail />} />
+        <Route path="/questions/:postId" element={<BoardDetail />} />
+        <Route path="/boasts/:postId" element={<BoardDetail />} />
+        <Route path="/recommendations/:postId" element={<BoardDetail />} />
       </Routes>
     </>
   )

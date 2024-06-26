@@ -4,7 +4,8 @@
       "postId": "1",
       "title": "제목1",
       "content": "내용1",
-      "author": "가",
+      "userId": "ID가",
+      "name": "이름1",
       "createdAt": "2024-06-19",
       "enum": ["freeboard", "adoption", "questions", "boasts", "recommendations"]
     },
@@ -12,7 +13,8 @@
       "postId": "2",
       "title": "제목2",
       "content": "내용2",
-      "author": "나",
+      "userId": "ID가",
+      "name": "이름2",
       "createdAt": "2024-06-19",
       "enum": ["freeboard", "adoption", "questions", "boasts", "recommendations"]
     },
@@ -20,7 +22,8 @@
       "postId": "3",
       "title": "제목3",
       "content": "내용3",
-      "author": "다",
+      "userId": "ID가",
+      "name": "이름3",
       "createdAt": "2024-06-19",
       "enum": ["freeboard", "adoption", "questions", "boasts", "recommendations"]
     },
@@ -28,7 +31,8 @@
       "postId": "4",
       "title": "제목4",
       "content": "내용4",
-      "author": "라",
+      "userId": "ID가",
+      "name": "이름4",
       "createdAt": "2024-06-19",
       "enum": ["freeboard", "adoption", "questions", "boasts", "recommendations"]
     },
@@ -36,7 +40,8 @@
       "postId": "5",
       "title": "제목5",
       "content": "내용5",
-      "author": "마",
+      "userId": "ID가",
+      "name": "이름5",
       "createdAt": "2024-06-19",
       "enum": ["freeboard", "adoption", "questions", "boasts", "recommendations"]
     }

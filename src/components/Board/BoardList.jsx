@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 
-const BoardList = () => {
+const BoardList = (props) => {
   const [boardList, setBoardList] = useState([])
+  // console.log(boardList)
   const navigate = useNavigate()
 
   // axios Ver.
@@ -20,14 +21,16 @@ const BoardList = () => {
   //   getBoardList()
   // }, [])
 
+  // console.log(boardList)
+
   useEffect(() => {
-    fetch('http://localhost:3000/data/mockData.json')
+    fetch('http://localhost:3000/data/mockData.json', {
+      method: 'GET',
+    })
       .then((res) => res.json())
       .then((res) => setBoardList(res.data))
     // console.log(boardList)
   }, [])
-
-  // console.log(boardList)
 
   // 로그인 유무에 따라 글쓰기 가능
   // const isLogin = window.localStorage.getItem(key)
@@ -56,11 +59,11 @@ const BoardList = () => {
             {boardList.map((data) => (
               <li key={data.postId} className="flex justify-around flex-col mt-2">
                 <div className="flex justify-around">
-                  <span className="hidden" key={data.postId}></span>
+                  <span className="hidden"></span>
                   <input type="checkbox" className="float-left" />
-                  <Link to={`/freeboard/${data.postId}`}>{data.title}</Link>
+                  <Link to={`/${props.boardType}/${data.postId}`}>{data.title}</Link>
                   <span>{data.createdAt}</span>
-                  <span>{data.author}</span>
+                  <span>{data.userId}</span>
                 </div>
                 <hr className="mt-2 bg-font min-h-[1px] border-0 h-0"></hr>
               </li>

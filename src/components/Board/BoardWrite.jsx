@@ -1,57 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const BoardWrite = () => {
   const navigate = useNavigate()
-  const { postId } = useParams() // URL에서 postId를 가져옴
+  // const { postId } = useParams() // URL에서 postId를 가져옴
 
   const [write, setWrite] = useState({
-    postId: postId || '', // postId가 있으면 수정, 없으면 새 글
     title: '',
     content: '',
     userId: '',
     category: 'freeboard',
   })
 
-  // useEffect(() => {
-  //   if (postId) {
-  //     // postId가 있을 경우 기존 글 불러오기
-  //     const fetchPost = async () => {
-  //       try {
-  //         const response = await axios.get(`http://localhost:3000/freeboard/${postId}`)
-  //         setWrite(response.data)
-  //       } catch (error) {
-  //         console.error('글 불러오기에 실패했습니다:', error)
-  //       }
-  //     }
-  //     fetchPost()
-  //   }
-  // }, [postId])
-
-  useEffect(() => {
-    if (postId) {
-      // postId가 있을 경우 기존 글 불러오기
-      const fetchPost = async () => {
-        try {
-          const response = await fetch(`http://localhost:3000/freeboard/${postId}`)
-          if (!response.ok) {
-            throw new Error('네트워크 응답이 정상이 아닙니다.')
-          }
-          const data = await response.json()
-          setWrite(data)
-        } catch (error) {
-          console.error('글 불러오기에 실패했습니다:', error)
-        }
-      }
-      fetchPost()
-    }
-  }, [postId])
-
   const { title, content, userId, category } = write
-  console.log(write)
 
-  const getBoardList = (e) => {
+  const onChange = (e) => {
     const { value, name } = e.target
     setWrite({
       ...write,
@@ -59,23 +23,18 @@ const BoardWrite = () => {
     })
   }
 
-  const saveWrite = async () => {
+  const saveBoard = async () => {
     try {
-      if (postId) {
-        // 수정하기
-        await axios.put(`http://localhost:3000/freeboard/${postId}`, write)
-        alert('수정 되었습니다.')
-      } else {
-        // 새 글 등록
-        await axios.post('http://localhost:3000/freeboard', write)
-        alert('등록 되었습니다.')
-      }
-      navigate('/freeboard')
+      const response = await axios.post('http://localhost:3000/data/mockData.json')
+      const data = response.data
+      setWrite(data.data)
+      console.log('write', write)
     } catch (error) {
-      console.error('글 등록에 실패했습니다:', error)
-      alert('등록에 실패했습니다.')
+      console.error('데이터를 보내지 못하였습니다.', error)
     }
   }
+
+  // console.log(write)
 
   const backToList = () => {
     navigate('/freeboard')
@@ -84,7 +43,7 @@ const BoardWrite = () => {
   return (
     <div>
       <form className="h-screen bg-[#FEDF78] p-28">
-        <h1 className="font-Point text-point text-2xl mb-10">{postId ? '수정하기' : '새 글 등록하기'}</h1>
+        <h1 className="font-Point text-point text-2xl mb-10">새 글 등록하기</h1>
         <div className="flex">
           <div className="mt-3 mr-4">
             <button type="button" onClick={backToList}>
@@ -96,7 +55,7 @@ const BoardWrite = () => {
             placeholder="제목"
             name="title"
             value={title}
-            onChange={getBoardList}
+            onChange={onChange}
             className="w-full h-12 font-Regular bg-[#FFF0D4] mb-6 rounded-lg p-3"
           />
         </div>
@@ -105,7 +64,7 @@ const BoardWrite = () => {
             placeholder="내용"
             name="content"
             value={content}
-            onChange={getBoardList}
+            onChange={onChange}
             className="w-full h-80 font-Regular bg-[#FFF0D4] mb-3 rounded-lg p-3"
           />
         </div>
@@ -115,7 +74,7 @@ const BoardWrite = () => {
             placeholder="작성자 이름"
             name="userId"
             value={userId}
-            onChange={getBoardList}
+            onChange={onChange}
             className="w-full h-12 font-Regular bg-[#FFF0D4] mb-6 rounded-lg p-3 hidden"
           />
         </div>
@@ -124,8 +83,8 @@ const BoardWrite = () => {
         </div>
         <div className="flex justify-end">
           <div className="bg-[#FFF0D4] absolute w-14 h-6 rounded-xl">
-            <button type="button" className="font-Point relative -translate-x-1.5 ml-5" onClick={saveWrite}>
-              {postId ? '수정' : '등록'}
+            <button type="submit" className="font-Point relative -translate-x-1.5 ml-5" onClick={saveBoard}>
+              등록
             </button>
           </div>
         </div>
