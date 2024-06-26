@@ -5,6 +5,35 @@ import axios from 'axios'
 const Board = ({ postId, title, content, userId }) => {
   const navigate = useNavigate()
 
+  const getUserId = localStorage.getItem('userId')
+  const today = new Date()
+  const formattedDate = `${today.getFullYear()}년 ${
+    today.getMonth() + 1
+  }월 ${today.getDate()}일 ${today.getHours()}시 ${today.getMinutes()}분`
+
+  // 댓글
+  const [commentList, setCommentList] = useState([])
+  const [comment, setComment] = useState('') //input값
+
+  const saveComment = (e) => {
+    setComment(e.target.value)
+    e.preventDefault()
+  }
+
+  const pushCommentList = () => {
+    setCommentList([
+      ...commentList,
+      {
+        userId: getUserId,
+        // userId: '이름1',
+        // createdAt: today,
+        createdAt: formattedDate,
+        comment: comment,
+      },
+    ])
+    setComment('')
+  }
+
   // const [data, setData] = useState({
   //   postId: postId,
   //   title: title,
@@ -46,7 +75,7 @@ const Board = ({ postId, title, content, userId }) => {
   return (
     <div>
       <div>
-        <div className="h-screen bg-[hsl(46,99%,73%)] p-28">
+        <div className="bg-[hsl(46,99%,73%)] p-28 h-screen">
           <span className="hidden" key={postId}></span>
           <span className="hidden">{userId}</span>
           <div>
@@ -78,12 +107,34 @@ const Board = ({ postId, title, content, userId }) => {
             </div>
           </div>
           <div>
-            <p className="font-Point mt-5">댓글</p>
+            <p className="font-Point mt-5 mb-3">댓글</p>
             <input
               type="text"
               placeholder="댓글입력"
               className="w-full h-12 font-Regular bg-[#FFF0D4] rounded-lg p-3"
+              value={comment}
+              onChange={saveComment}
             />
+            <div className="flex justify-end mt-4">
+              <div className="bg-[#FFF0D4] absolute w-11 h-6 rounded-xl"></div>
+              <button type="button" className="font-Point relative -translate-x-2.5 ml-3" onClick={pushCommentList}>
+                등록
+              </button>
+            </div>
+            {commentList.map((el, i) => {
+              return (
+                <div className="mt-5">
+                  <div className="flex justify-between mb-2">
+                    <span key={el.id} className="font-Point">
+                      {el.userId}
+                    </span>
+                    <span>{el.createdAt}</span>
+                  </div>
+                  <span key={i}>{el.comment}</span>
+                  <hr className="mt-2 bg-font min-h-[1px] border-0 h-0" />
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>

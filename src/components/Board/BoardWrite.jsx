@@ -32,6 +32,7 @@ const BoardWrite = () => {
       console.log('write', write)
     } catch (error) {
       console.error('데이터를 보내지 못하였습니다.', error)
+      alert('게시글이 등록되었습니다.')
     }
   }
 
@@ -43,7 +44,7 @@ const BoardWrite = () => {
 
   return (
     <div>
-      <form className="h-screen bg-[#FEDF78] p-28">
+      <form className="bg-[#FEDF78] p-28 h-screen">
         <h1 className="font-Point text-point text-2xl mb-10">새 글 등록하기</h1>
         <div className="flex">
           <div className="mt-3 mr-4">

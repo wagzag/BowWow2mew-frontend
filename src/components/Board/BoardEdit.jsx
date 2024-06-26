@@ -54,7 +54,7 @@ const BoardEdit = () => {
 
   return (
     <div>
-      <form className="h-screen bg-[#FEDF78] p-28">
+      <form className="bg-[#FEDF78] p-28 h-screen">
         <h1 className="font-Point text-point text-2xl mb-10">수정하기</h1>
         <div className="flex">
           <div className="mt-3 mr-4">

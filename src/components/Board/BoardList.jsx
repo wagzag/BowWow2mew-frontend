@@ -47,7 +47,7 @@ const BoardList = (props) => {
       <div className="bg-[#FEDF78]">
         <div>
           <div className="flex justify-around">
-            <span className="font-semibold">체크</span>
+            <span className="hidden">체크</span>
             <span className="font-semibold">제목</span>
             <span className="font-semibold">날짜</span>
             <span className="font-semibold">이름</span>

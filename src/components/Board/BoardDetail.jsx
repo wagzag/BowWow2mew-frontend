@@ -5,10 +5,7 @@ import Board from './Board'
 
 const BoardDetail = () => {
   const { postId } = useParams()
-
   const [board, setBoard] = useState({})
-
-  // console.log(board)
 
   useEffect(() => {
     const getBoard = async () => {
