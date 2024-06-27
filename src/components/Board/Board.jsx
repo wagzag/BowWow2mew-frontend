@@ -5,6 +5,12 @@ import { del, authPost, get } from "../../api";
 const Board = ({ postId, title, content }) => {
   const navigate = useNavigate();
   const boardType = window.location.pathname.split("/")[1];
+  const getUserId = localStorage.getItem("userId");
+  const getCategory = JSON.parse(localStorage.getItem("category"));
+  const today = new Date();
+  const formattedDate = `${today.getFullYear()}년 ${
+    today.getMonth() + 1
+  }월 ${today.getDate()}일 ${today.getHours()}시 ${today.getMinutes()}분`;
 
   // 댓글
   const [commentList, setCommentList] = useState([]);

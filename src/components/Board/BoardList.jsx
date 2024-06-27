@@ -16,6 +16,10 @@ const BoardList = (props) => {
     getBoard();
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("category", JSON.stringify(props.boardType));
+  }, []);
+
   // 로그인 유무에 따라 글쓰기 가능
   const boardWrite = () => {
     const boardType = window.location.pathname.split("/")[1];
@@ -47,7 +51,6 @@ const BoardList = (props) => {
                   className="flex flex-col justify-around mt-2"
                 >
                   <div className="flex justify-around">
-                    <span className="hidden"></span>
                     <input type="checkbox" className="float-left" />
                     <Link to={`/${props.boardType}/${data.postId}`}>
                       {data.title}
@@ -57,9 +60,6 @@ const BoardList = (props) => {
                   </div>
                   <hr className="mt-2 bg-font min-h-[1px] border-0 h-0"></hr>
                 </li>
-                // <div className="flex flex-col justify-around mt-2">
-
-                // </div>
               ))}
           </ul>
           <div className="flex justify-end mt-3">
