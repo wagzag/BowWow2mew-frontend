@@ -20,7 +20,7 @@ export const authPost = async (params, bodyData) => {
   try {
     const res = await instance.post(params, bodyData, {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("loginToken")}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
     return res;
@@ -42,7 +42,7 @@ export const authGet = async (params = "") => {
   try {
     const response = await instance.get(params, {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("loginToken")}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
     return response;
@@ -55,7 +55,7 @@ export const put = async (params = "", bodyData) => {
   try {
     const res = await instance.put(params, bodyData, {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("loginToken")}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
     return res;
@@ -68,7 +68,7 @@ export const del = async (params = "") => {
   try {
     const res = await instance.delete(params, {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem("loginToken")}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
     return res;

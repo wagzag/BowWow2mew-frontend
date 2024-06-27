@@ -91,9 +91,9 @@ const BoardEdit = () => {
             className="w-full h-12 font-Regular bg-[#FFF0D4] mb-6 rounded-lg p-3 hidden"
           />
         </div>
-        {/* <div>
+        <div>
           <input type="file" id="file" className="w-6/12" />
-        </div> */}
+        </div>
         <div className="flex justify-end">
           <div className="bg-[#FFF0D4] absolute w-14 h-6 rounded-xl">
             <button

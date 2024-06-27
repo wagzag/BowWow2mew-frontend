@@ -1,16 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { del } from "../../api";
+import { del, authPost, get } from "../../api";
 
 const Board = ({ postId, title, content }) => {
   const navigate = useNavigate();
   const boardType = window.location.pathname.split("/")[1];
-
-  const getUserId = localStorage.getItem("userId");
-  const today = new Date();
-  const formattedDate = `${today.getFullYear()}년 ${
-    today.getMonth() + 1
-  }월 ${today.getDate()}일 ${today.getHours()}시 ${today.getMinutes()}분`;
 
   // 댓글
   const [commentList, setCommentList] = useState([]);
@@ -21,17 +15,21 @@ const Board = ({ postId, title, content }) => {
     setComment(e.target.value);
   };
 
-  const pushCommentList = () => {
-    setCommentList([
-      ...commentList,
-      {
-        userId: getUserId,
-        // userId: '이름1',
-        // createdAt: today,
-        createdAt: formattedDate,
-        comment: comment,
-      },
-    ]);
+  useEffect(() => {
+    const getCommentList = async () => {
+      const { data } = await get(`/comments?postId=${postId}`);
+      setCommentList(data.data);
+    };
+
+    getCommentList();
+  }, [postId]);
+
+  const pushCommentList = async () => {
+    await authPost(`/comments?postId=${postId}&category=${boardType}`, {
+      content: comment,
+    });
+    const { data } = await get(`/comments?postId=${postId}`);
+    setCommentList(data.data);
     setComment("");
   };
 
@@ -126,14 +124,12 @@ const Board = ({ postId, title, content }) => {
             </div>
             {commentList.map((el, i) => {
               return (
-                <div className="mt-5">
+                <div className="mt-5" key={el + i}>
                   <div className="flex justify-between mb-2">
-                    <span key={el.id} className="font-Point">
-                      {el.userId}
-                    </span>
+                    <span className="font-Point">{el.userName}</span>
                     <span>{el.createdAt}</span>
                   </div>
-                  <span key={i}>{el.comment}</span>
+                  <span key={i}>{el.content}</span>
                   <hr className="mt-2 bg-font min-h-[1px] border-0 h-0" />
                 </div>
               );
