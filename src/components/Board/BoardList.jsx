@@ -6,6 +6,7 @@ const BoardList = (props) => {
   const [boardList, setBoardList] = useState([])
   // console.log(boardList)
   const navigate = useNavigate()
+  // const getCategory = localStorage.getItem('category')
 
   // axios Ver.
   // const getBoardList = async () => {
@@ -32,13 +33,17 @@ const BoardList = (props) => {
     // console.log(boardList)
   }, [])
 
+  useEffect(() => {
+    localStorage.setItem('category', JSON.stringify(props.boardType))
+  }, [])
+
   // 로그인 유무에 따라 글쓰기 가능
   // const isLogin = window.localStorage.getItem(key)
   const boardWrite = () => {
     // if (isLogin === null) {
     //   navigate('/login')
     // } else {
-    navigate('/freeboard/write')
+    navigate(`/${props.boardType}/write`)
     // }
   }
 
@@ -59,7 +64,6 @@ const BoardList = (props) => {
             {boardList.map((data) => (
               <li key={data.postId} className="flex justify-around flex-col mt-2">
                 <div className="flex justify-around">
-                  <span className="hidden"></span>
                   <input type="checkbox" className="float-left" />
                   <Link to={`/${props.boardType}/${data.postId}`}>{data.title}</Link>
                   <span>{data.createdAt}</span>
@@ -67,9 +71,6 @@ const BoardList = (props) => {
                 </div>
                 <hr className="mt-2 bg-font min-h-[1px] border-0 h-0"></hr>
               </li>
-              // <div className="flex justify-around flex-col mt-2">
-
-              // </div>
             ))}
           </ul>
           <div className="flex justify-end mt-3">

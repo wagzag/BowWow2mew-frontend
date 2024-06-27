@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const BoardWrite = () => {
   const navigate = useNavigate()
   // const { postId } = useParams() // URL에서 postId를 가져옴
   const getUserId = localStorage.getItem('userId')
+  const getCategory = localStorage.getItem('category')
 
   const [write, setWrite] = useState({
     title: '',
     content: '',
     userId: getUserId,
-    category: 'freeboard',
+    category: getCategory,
   })
 
   const { title, content, userId, category } = write

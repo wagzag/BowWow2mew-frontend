@@ -31,6 +31,10 @@ const AppContent = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/join" element={<JoinPage />} /> {/* 회원가입 페이지 경로 추가 */}
         <Route path="freeboard/write" element={<BoardWrit />} />
+        <Route path="adoption/write" element={<BoardWrit />} />
+        <Route path="questions/write" element={<BoardWrit />} />
+        <Route path="boasts/write" element={<BoardWrit />} />
+        <Route path="recommendations/write" element={<BoardWrit />} />
         <Route path="/board" element={<BoardList />} />
         <Route path="/update/:postId" element={<BoardEdit />} />
         <Route path="/freeboard/:postId" element={<BoardDetail />} />

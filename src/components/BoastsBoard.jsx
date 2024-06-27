@@ -8,7 +8,7 @@ const AdoptionBoard = () => {
     <div>
       <div className="h-screen bg-[#FEDF78] p-28">
         <p className="font-Point text-point text-2xl mb-10">입양 / 임시보호</p>
-        <BoardList boardType={'adoption'}>
+        <BoardList boardType={'boasts'}>
           <BoardDetail />
         </BoardList>
       </div>

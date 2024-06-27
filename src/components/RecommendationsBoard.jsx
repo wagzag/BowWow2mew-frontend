@@ -8,7 +8,7 @@ const QuestionsBoard = () => {
     <div>
       <div className="h-screen bg-[#FEDF78] p-28">
         <p className="font-Point text-point text-2xl mb-10">고민 해결소</p>
-        <BoardList boardType={'questions'}>
+        <BoardList boardType={'recommendations'}>
           <BoardDetail />
         </BoardList>
       </div>
