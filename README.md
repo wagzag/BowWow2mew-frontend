@@ -26,7 +26,8 @@
 |팀장님<br/>Frontend<br/>[@Dagyeong](https://github.com/Dagyeong)|Frontend<br/>[@KimChaeYeon0](https://github.com/KimChaeYeon0)|Backend<br/>[@eunyeong](https://github.com/eunyeong)|Backend<br/>[@yihimin](https://github.com/yihimin)|Frontend<br/>Backend<br/>[@yoon-gang00](https://github.com/yoon-gang00)|
 
 ## 피그마 
-https://www.figma.com/design/B8ARSxqs9pJSA8tqXIpZm1/Wagzag?t=sJx5BfBJTKvMZxM6-1
+[wagzag-figma-link](https://www.figma.com/design/B8ARSxqs9pJSA8tqXIpZm1/Wagzag?t=sJx5BfBJTKvMZxM6-1)
+
 <img width="754" alt="스크린샷 2024-06-27 오후 10 56 59" src="https://github.com/wagzag/BowWow2mew-frontend/assets/76502911/59b273d5-6fc2-4c86-b05c-a8ac561de55c">
 
 ## 페이지 구성
