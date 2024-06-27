@@ -1,46 +1,30 @@
-import React, { useEffect, useState } from 'react'
-// import axios from 'axios'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { get } from "../../api";
 
 const BoardList = (props) => {
-  const [boardList, setBoardList] = useState([])
-  // console.log(boardList)
-  const navigate = useNavigate()
+  const [boardList, setBoardList] = useState([]);
+  const navigate = useNavigate();
 
-  // axios Ver.
-  // const getBoardList = async () => {
-  //   try {
-  //     const getData = await axios.get('http://localhost:3000/freeboard')
-  //     setBoardList(getData.data)
-  //   } catch (error) {
-  //     console.error('데이터를 가져오는 데 실패했습니다:', error)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   getBoardList()
-  // }, [])
-
-  // console.log(boardList)
+  const getBoard = async () => {
+    const boardType = window.location.pathname.split("/")[1];
+    const res = await get(`/${boardType}`);
+    setBoardList(res.data);
+  };
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/mockData.json', {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((res) => setBoardList(res.data))
-    // console.log(boardList)
-  }, [])
+    getBoard();
+  }, []);
 
   // 로그인 유무에 따라 글쓰기 가능
-  // const isLogin = window.localStorage.getItem(key)
   const boardWrite = () => {
-    // if (isLogin === null) {
-    //   navigate('/login')
-    // } else {
-    navigate('/freeboard/write')
-    // }
-  }
+    const boardType = window.location.pathname.split("/")[1];
+    if (!localStorage.getItem("token")) {
+      alert("로그인이 필요한 기능입니다!");
+      navigate("/login");
+    }
+    navigate(`/${boardType}/write`);
+  };
 
   return (
     <div>
@@ -56,32 +40,42 @@ const BoardList = (props) => {
         </div>
         <div>
           <ul>
-            {boardList.map((data) => (
-              <li key={data.postId} className="flex justify-around flex-col mt-2">
-                <div className="flex justify-around">
-                  <span className="hidden"></span>
-                  <input type="checkbox" className="float-left" />
-                  <Link to={`/${props.boardType}/${data.postId}`}>{data.title}</Link>
-                  <span>{data.createdAt}</span>
-                  <span>{data.name}</span>
-                </div>
-                <hr className="mt-2 bg-font min-h-[1px] border-0 h-0"></hr>
-              </li>
-              // <div className="flex justify-around flex-col mt-2">
+            {boardList.length > 0 &&
+              boardList.map((data) => (
+                <li
+                  key={data.postId}
+                  className="flex flex-col justify-around mt-2"
+                >
+                  <div className="flex justify-around">
+                    <span className="hidden"></span>
+                    <input type="checkbox" className="float-left" />
+                    <Link to={`/${props.boardType}/${data.postId}`}>
+                      {data.title}
+                    </Link>
+                    <span>{data.createdAt}</span>
+                    <span>{data.userName}</span>
+                  </div>
+                  <hr className="mt-2 bg-font min-h-[1px] border-0 h-0"></hr>
+                </li>
+                // <div className="flex flex-col justify-around mt-2">
 
-              // </div>
-            ))}
+                // </div>
+              ))}
           </ul>
           <div className="flex justify-end mt-3">
             <div className="bg-[#FFF0D4] absolute w-16 h-6 rounded-xl"></div>
-            <button type="button" className="font-Point relative translate-x-2 mr-5 pointer" onClick={boardWrite}>
+            <button
+              type="button"
+              className="relative mr-5 translate-x-2 font-Point pointer"
+              onClick={boardWrite}
+            >
               글쓰기
             </button>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BoardList
+export default BoardList;
