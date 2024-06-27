@@ -16,10 +16,6 @@ const BoardList = (props) => {
     getBoard();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("category", JSON.stringify(props.boardType));
-  }, []);
-
   // 로그인 유무에 따라 글쓰기 가능
   const boardWrite = () => {
     const boardType = window.location.pathname.split("/")[1];
