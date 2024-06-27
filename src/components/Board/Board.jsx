@@ -6,6 +6,7 @@ const Board = ({ postId, title, content, userId }) => {
   const navigate = useNavigate()
 
   const getUserId = localStorage.getItem('userId')
+  const getCategory = JSON.parse(localStorage.getItem('category'))
   const today = new Date()
   const formattedDate = `${today.getFullYear()}년 ${
     today.getMonth() + 1
@@ -42,7 +43,7 @@ const Board = ({ postId, title, content, userId }) => {
   // })
 
   const backToList = () => {
-    navigate('/freeboard')
+    navigate(`/${getCategory}`)
   }
 
   const boardEdit = () => {
