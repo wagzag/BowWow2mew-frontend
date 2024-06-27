@@ -1,12 +1,14 @@
-# 백엔드 Repository
+# 멍멍냥냥 백엔드 Repository
 [Back-end Repository](https://github.com/wagzag/BowWow2mew-backend)
 
-# 멍멍냥냥
 <img width="909" alt="스크린샷 2024-06-27 오후 5 39 34" src="https://github.com/wagzag/BowWow2mew-frontend/assets/76502911/372e4b9f-6098-45f8-ad2a-c371b93ddb47">
 <img width="910" alt="스크린샷 2024-06-27 오후 5 39 40" src="https://github.com/wagzag/BowWow2mew-frontend/assets/76502911/84ddbd86-6a8d-4a5b-bf32-a280c0026441">
 
 ## 소개
 **멍멍냥냥**은 반려동물 커뮤니티 웹 애플리케이션입니다. 사용자들은 반려동물 사진을 공유하고, 입양 및 임시보호 정보를 교환하며, 다양한 반려동물 관련 이슈에 대해 토론할 수 있습니다.
+
+## 개발기간 
+2024.06.05-2024.06.28
 
 ## 기술 스택
 ### 프론트엔드
@@ -18,7 +20,14 @@
 ## 개발 도구
 <img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white"/> <img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/>
 
+## Team
+|<img src="https://avatars.githubusercontent.com/u/15326450?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/172516678?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/10623507?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/127826452?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/76502911?v=4" width="150" height="150"/>|
+|:-:|:-:|:-:|:-:|:-:|
+|팀장님<br/>Frontend<br/>[@Dagyeong](https://github.com/Dagyeong)|Frontend<br/>[@KimChaeYeon0](https://github.com/KimChaeYeon0)|Backend<br/>[@eunyeong](https://github.com/eunyeong)|Backend<br/>[@yihimin](https://github.com/yihimin)|Frontend<br/>Backend<br/>[@yoon-gang00](https://github.com/yoon-gang00)|
 
+## 피그마 
+https://www.figma.com/design/B8ARSxqs9pJSA8tqXIpZm1/Wagzag?t=sJx5BfBJTKvMZxM6-1
+<img width="754" alt="스크린샷 2024-06-27 오후 10 56 59" src="https://github.com/wagzag/BowWow2mew-frontend/assets/76502911/59b273d5-6fc2-4c86-b05c-a8ac561de55c">
 
 ## 페이지 구성
 * 메인 페이지는 금주의 반려동물을 보고, 각 게시판의 대표글을 확인할 수 있는 공간입니다.
