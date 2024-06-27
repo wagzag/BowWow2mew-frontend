@@ -1,3 +1,6 @@
+# 백엔드 Repository
+[Back-end Repository](https://github.com/wagzag/BowWow2mew-backend)
+
 # 멍멍냥냥
 <img width="909" alt="스크린샷 2024-06-27 오후 5 39 34" src="https://github.com/wagzag/BowWow2mew-frontend/assets/76502911/372e4b9f-6098-45f8-ad2a-c371b93ddb47">
 <img width="910" alt="스크린샷 2024-06-27 오후 5 39 40" src="https://github.com/wagzag/BowWow2mew-frontend/assets/76502911/84ddbd86-6a8d-4a5b-bf32-a280c0026441">
